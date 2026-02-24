@@ -6,10 +6,11 @@ module NeoComponents
       Pathname.new(File.expand_path("../..", __dir__))
     end
 
-    # Register Sprockets asset paths (icons + stylesheets)
+    # Register Sprockets asset paths (icons, stylesheets, and javascript)
     initializer "neo_components.assets" do |app|
       app.config.assets.paths << Engine.gem_root.join("app/assets/stylesheets")
       app.config.assets.paths << Engine.gem_root.join("app/assets/icons")
+      app.config.assets.paths << Engine.gem_root.join("app/javascript")
       app.config.assets.precompile += %w[icons.css]
     end
 
