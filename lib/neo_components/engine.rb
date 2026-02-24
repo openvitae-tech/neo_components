@@ -3,7 +3,7 @@
 module NeoComponents
   class Engine < ::Rails::Engine
     def self.gem_root
-      Pathname.new(File.expand_path("../../..", __dir__))
+      Pathname.new(File.expand_path("../..", __dir__))
     end
 
     # Register Sprockets asset paths (icons + stylesheets)
