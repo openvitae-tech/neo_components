@@ -12,6 +12,11 @@ module NeoComponents
       app.config.assets.paths << Engine.gem_root.join("app/assets/icons")
       app.config.assets.paths << Engine.gem_root.join("app/javascript")
       app.config.assets.precompile += %w[icons.css]
+      # Declare all Stimulus controllers as precompilable so importmap can resolve their URLs
+      controllers_glob = Engine.gem_root.join("app/javascript/neo_components/controllers/*.js")
+      app.config.assets.precompile += Dir[controllers_glob].map do |f|
+        "neo_components/controllers/#{File.basename(f)}"
+      end
     end
 
     # Register gem view path so partials under app/views/ are found
