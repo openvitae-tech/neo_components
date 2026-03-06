@@ -2,6 +2,8 @@
 
 module NeoComponents
   class Engine < ::Rails::Engine
+    isolate_namespace NeoComponents
+
     def self.gem_root
       Pathname.new(File.expand_path("../..", __dir__))
     end
@@ -30,6 +32,7 @@ module NeoComponents
     initializer "neo_components.include_helpers" do
       ActiveSupport.on_load(:action_view) do
         include UiHelper
+        include NeoComponents::SampleMenuHelper
       end
     end
 
