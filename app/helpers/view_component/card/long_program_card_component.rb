@@ -3,11 +3,11 @@
 module ViewComponent
   module Card
     module LongProgramCardComponent
-      def long_program_card_component(program:, user:)
+      def long_program_card_component(program:, enrolled_program_ids:)
         name = program.name
         courses_count = program.courses.count
         enroll_count = program.users.count
-        is_enrolled = program.program_users.exists?(user:)
+        is_enrolled = enrolled_program_ids.include?(program.id)
         render partial: 'view_components/cards/long_program_card_component', locals: {
           name:,
           courses_count:,
