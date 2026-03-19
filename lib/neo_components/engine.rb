@@ -21,18 +21,19 @@ module NeoComponents
       end
     end
 
-    # Register gem view path so partials under app/views/ are found
-    initializer "neo_components.view_paths" do
-      ActiveSupport.on_load(:action_controller) do
-        append_view_path NeoComponents::Engine.gem_root.join("app/views")
+    # Register gem view path so partials under app/views/ are found.
+    # Uses to_prepare so the path is re-registered on every reload in development.
+    initializer "neo_components.view_paths" do |app|
+      app.config.to_prepare do
+        ActionController::Base.append_view_path NeoComponents::Engine.gem_root.join("app/views")
       end
     end
 
-    # Auto-include UiHelper into all ActionView contexts
-    initializer "neo_components.include_helpers" do
-      ActiveSupport.on_load(:action_view) do
-        include UiHelper
-        include NeoComponents::SampleMenuHelper
+    # Auto-include UiHelper into all ActionView contexts.
+    # Uses to_prepare so fresh module objects are re-included after every reload in development.
+    initializer "neo_components.include_helpers" do |app|
+      app.config.to_prepare do
+        ActionView::Base.include UiHelper
       end
     end
 
