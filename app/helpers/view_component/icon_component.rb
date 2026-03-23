@@ -2,7 +2,7 @@
 
 module ViewComponent
   module IconComponent
-    ICONS_PATH = NeoComponents::Engine.gem_root.join("app", "assets", "icons")
+    ICONS_PATH = NeoComponents::Engine.gem_root.join('app', 'assets', 'icons')
 
     def icon(icon_name, css: nil, span_css: nil, stroke_width: nil)
       file = Rails.cache.fetch("neo_components:icon:#{icon_name}") do
