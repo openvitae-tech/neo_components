@@ -18,9 +18,9 @@
     <div class="flex-1 overflow-hidden bg-black opacity-20 h-[50px]">
     </div>
     <div class="flex flex-col">
-      <p class="general-text-lg-normal px-3 py-1 truncate text-letter-color-light bg-white"><%= course_title %></p>
+      <p class="general-text-lg-normal px-4 py-2 truncate text-letter-color-light bg-white"><%= course_title %></p>
 
-      <div class="flex gap-2 px-3 pb-3 bg-white">
+      <div class="flex gap-2  px-4 pb-2 bg-white">
         <%= link_to download_path, class: "flex-1" do %>
           <%= button_component(text: t("button.download"), type: "outline", icon_name: "arrow-down-tray", icon_position: "right", size: "sm") %>
         <% end %>
