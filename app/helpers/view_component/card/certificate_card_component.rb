@@ -6,8 +6,8 @@ module ViewComponent
       def certificate_card_component(certificate:)
         has_thumbnail = certificate.certificate_thumbnail.attached?
         course_title = certificate.course.title
-        download_path = rails_blob_path(certificate.file, disposition: 'attachment')
-        share_path = share_certificate_profile_path(certificate_id: certificate.id)
+        download_path = certificate.file.present? ? rails_blob_path(certificate.file, disposition: 'attachment') : '#'
+        share_path = certificate.id.present? ? share_certificate_profile_path(certificate_id: certificate.id) : '#'
 
         render partial: 'view_components/cards/certificate_card_component', locals: {
           certificate:,
