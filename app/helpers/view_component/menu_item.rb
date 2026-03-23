@@ -6,7 +6,6 @@ module ViewComponent
     :url,
     :type,
     :options,
-    :extra_classes,
-    keyword_init: true
+    :extra_classes
   )
 end
