@@ -28,5 +28,6 @@ NeoComponents::Engine.routes.draw do
     get :profile_icon, to: 'profile_icon#index'
     get :accordions, to: 'accordions#index'
     get :carousels, to: 'carousels#index'
+    get :cards, to: 'cards#index'
   end
 end
