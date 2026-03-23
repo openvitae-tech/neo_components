@@ -10,7 +10,7 @@
           input.html_options[:checked],
           input.html_options.except(:checked) %>
   <% end %>
-  <div class="w-5 h-5 flex justify-center items-center rounded-sm border-2 <%= input.box_style %>">
+  <div class="w-5 h-5 flex justify-center items-center rounded-sm border <%= input.box_style %>">
     <%= icon("check", span_css: "w-5 h-5 #{input.check_style}", stroke_width: '2.0') %>
   </div>
 <% end %>
