@@ -1,5 +1,5 @@
 .profile-icon-base {
-  @apply  border border-line-colour bg-primary-light-50 flex items-center justify-center rounded-full text-primary;
+  @apply  border border-line-colour bg-white flex items-center justify-center rounded-full text-primary;
 }
 
 .profile-icon-sm {
