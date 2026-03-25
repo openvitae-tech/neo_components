@@ -19,6 +19,9 @@ module UiHelper
   include ViewComponent::Card::ProgramCardComponent
   include ViewComponent::Card::CertificateCardComponent
   include ViewComponent::Card::LongProgramCardComponent
+  include ViewComponent::Card::StatCardComponent
+  include ViewComponent::Card::ActionBannerComponent
+  include ViewComponent::Card::ContentStudioCourseCardComponent
   include ViewComponent::CourseSelectComponent
   include ViewComponent::MemberListComponent
   include ViewComponent::NotificationBarComponent
