@@ -1,0 +1,61 @@
+<%# app/views/view_components/cards/_content_studio_course_card_component.html.erb %>
+<div class="bg-white border border-line-colour border-solid flex flex-col gap-2 items-center overflow-hidden pb-5 relative rounded-xl w-[308px] shrink-0">
+  <div class="flex flex-col gap-1 h-[148px] items-start relative w-full">
+    <div class="flex gap-2.5 h-[140px] items-end justify-end overflow-hidden px-4 relative rounded-t-xl w-full">
+      <div class="absolute inset-0 pointer-events-none rounded-t-xl">
+        <%= image_tag bg_image, class: "absolute max-w-none object-cover rounded-t-xl h-full w-full" %>
+      </div>
+      <div class="absolute border-b border-r border-line-colour border-solid flex h-7 items-center justify-center left-0 px-2 py-1 rounded-br-xl top-0" style="background-color: <%= tag_bg_color %>;">
+        <p class="font-medium leading-4 text-xs whitespace-nowrap" style="color: <%= tag_text_color %>;">
+          <%= tag_text %>
+        </p>
+      </div>
+    </div>
+    <% if local_assigns[:progress_width] %>
+      <div class="bg-primary-light-50 h-1 overflow-hidden relative w-full">
+        <div class="absolute bg-primary h-1 left-0 rounded-r-sm top-0" style="width: <%= progress_width %>;"></div>
+      </div>
+    <% end %>
+  </div>
+  <div class="flex flex-col gap-4 items-start px-4 relative w-full">
+    <div class="flex flex-col h-12 items-start justify-center relative w-full">
+      <p class="font-semibold h-12 leading-6 overflow-hidden relative text-base text-letter-color text-ellipsis line-clamp-2 w-full">
+        <%= title %>
+      </p>
+    </div>
+    <div class="flex gap-3 items-center relative w-full">
+      <div class="flex gap-0.5 items-center p-0.5 relative">
+        <div class="overflow-hidden relative h-4 w-4">
+          <%= icon("clock", css: "h-4 w-4 text-letter-color") %>
+        </div>
+        <p class="font-normal leading-4 text-xs text-letter-color whitespace-nowrap">
+          <%= duration %>
+        </p>
+      </div>
+      <div class="flex gap-1 items-center relative">
+        <div class="flex gap-1 items-center justify-center p-0.5 relative">
+          <div class="overflow-hidden relative h-4 w-4">
+            <%= icon("document", css: "h-4 w-4 text-letter-color") %>
+          </div>
+          <p class="font-normal leading-4 text-xs text-letter-color whitespace-nowrap">
+            <%= modules_count %> Modules
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-2 items-center justify-start flex-wrap relative w-full">
+      <% labels.each do |label| %>
+        <div class="bg-primary-light-100 flex gap-1 h-5 items-center justify-center px-1 py-0.5 relative rounded opacity-90">
+          <p class="font-normal leading-4 text-xs text-primary-dark text-center whitespace-nowrap">
+            <%= label %>
+          </p>
+        </div>
+      <% end %>
+      <% if local_assigns[:extra_labels_count] %>
+        <p class="font-normal leading-4 text-xs text-primary whitespace-nowrap">
+          +<%= extra_labels_count %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
