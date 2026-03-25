@@ -1,0 +1,14 @@
+<%# app/views/view_components/cards/_stat_card_component.html.erb %>
+<div class="bg-primary-light-50 border border-slate-grey-light border-solid flex flex-1 gap-4 items-center p-5 relative rounded-[20px]">
+  <div class="bg-white flex items-center justify-center overflow-hidden py-1 rounded-2xl shrink-0 h-[60px] w-[60px]">
+    <%= icon(icon_name, css: "h-7 w-7 text-primary") %>
+  </div>
+  <div class="flex flex-1 flex-col gap-1 items-start relative text-letter-color whitespace-nowrap">
+    <p class="font-semibold leading-7 text-lg">
+      <%= title %>
+    </p>
+    <p class="font-normal leading-6 text-base">
+      <%= subtitle %>
+    </p>
+  </div>
+</div>
